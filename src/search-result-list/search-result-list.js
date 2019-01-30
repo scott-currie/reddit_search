@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class StarWarsData extends Component {
+export default class SearchResultList extends Component {
 
     render() {
         return (

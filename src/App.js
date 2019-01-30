@@ -1,8 +1,7 @@
 import './App.css'
 import React, { Component } from 'react'
-import StarWarsHeader from './star-wars-header/star-wars-header';
-import StarWarsSearch from './star-wars-search/star-wars-search';
-import StarWarsData from './star-wars-data/star-wars-data';
+import SearchForm from './search-form';
+import SearchResultList from './search-result-list';
 
 class App extends Component {
   constructor(props) {
@@ -22,11 +21,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <StarWarsHeader subTitle='May the force be with you' />
+        <SearchForm onSearch={this.handleSearch} />
 
-        <StarWarsSearch onSearch={this.handleSearch} />
-
-        <StarWarsData items={this.state.results} />
+        <SearchResultList items={this.state.results} />
 
 
       </div>

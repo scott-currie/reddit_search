@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import superagent from 'superagent'
-import './star-wars-search.css'
 
-class StarWarsSearch extends Component {
+class SearchForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchName: '',
-      page: 0,
+      searchFormBoard: '',
+      searchFormLimit: 1,
       errorClass: ''
     }
 
@@ -17,7 +16,7 @@ class StarWarsSearch extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const url = `https://swapi.co/api/${this.state.searchName}/?page=${this.state.page}`
+    const url = `https://www.reddit.com/r/${this.state.searchFormBoard}.json?limit=${this.state.searchFormLimit}`
 
     superagent.get(url)
     .then(res => {
@@ -36,17 +35,17 @@ class StarWarsSearch extends Component {
 
   render() {
     return (
-      <div className="star-wars-search">
+      <div className="search-form">
         <form className={this.state.errorClass} onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="searchName"
-            value={this.state.searchName}
+            name="searchFormBoard"
+            value={this.state.searchFormBoard}
             onChange={this.handleChange}/>
           <input
             type="number"
-            name="page"
-            value={this.state.page}
+            name="searchFormLimit"
+            value={this.state.searchFormLimit}
             onChange={this.handleChange}/>
 
           <button type="submit">Search</button>
@@ -56,4 +55,4 @@ class StarWarsSearch extends Component {
   }
 }
 
-export default StarWarsSearch
+export default SearchForm;
