@@ -6,7 +6,13 @@ export default class SearchResultList extends Component {
         return (
             <div className="results">
                 <ul>
-                {this.props.items.map(item => <li key={item.data.title}><a href={item.data.url}>{item.data.title}</a>{item.data.ups}</li>)}
+                {this.props.items.map(item =>
+                    <li key={item.data.title}>
+                        <a href={item.data.url}>
+                            <h3>{item.data.title}</h3>
+                            <p>{item.data.ups}</p>
+                        </a>
+                    </li>)}
                 </ul>
             </div>
         )
